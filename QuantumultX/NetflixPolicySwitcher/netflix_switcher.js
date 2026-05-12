@@ -34,7 +34,7 @@ let concurrency = parseInt($.getval('Helge_0x00.Netflix_Concurrency')) || 10
   }
 
   let { region, status } = await test(actualNode)
-  if (status === STATUS_FULL_AVAILABLE) {
+  if (status === STATUS_FULL_AVAILABLE && region == selectRegion) {
     let flag = getCountryFlagEmoji(region) ?? ''
     let regionName = REGIONS?.[region.toUpperCase()]?.chinese ?? ''
     if (!scriptNotify) $.msg($.name, `${actualNode}`, `该节点完整支持 Netflix ➟ ${flag} ${regionName}`)
